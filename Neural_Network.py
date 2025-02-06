@@ -15,10 +15,12 @@ class Model(nn.Module):
         self.out = nn.Linear(h2,out_layer)
 
     def forward(self,x):
-        x = F.gelu(self.fc1)
-        x = F.gelu(self.fc2)
+        x = F.gelu(self.fc1(x))
+        x = F.gelu(self.fc2(x))
         x = self.out(x)
 
         return x
+# Pick manual seed for randomization
 torch.manual_seed(41)
+# created an instance of Model
 model = Model()
