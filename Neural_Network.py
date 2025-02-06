@@ -20,3 +20,5 @@ class Model(nn.Module):
         x = self.out(x)
 
         return x
+torch.manual_seed(41)
+model = Model()
